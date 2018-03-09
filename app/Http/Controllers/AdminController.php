@@ -19,7 +19,7 @@ class AdminController extends Controller
             $pseudo = $request->input('pseudo');
             $admin = Admin::where('pseudo', $pseudo)->first();
             $pass = $request->input('password');
-            if (password_verify($pass, $admin->password)) {
+            if ($pass == $admin->password) {
                 session()->put('isAdmin', true);
                 return redirect("dashboard");
             } else {
