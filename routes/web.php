@@ -67,7 +67,7 @@ Route::get('/unlink/{house?}', 'HouseController@unlink')->name('unlink');
 Route::get('/host','HostController@index')->name('host');
 Route::post('/login', 'HostController@Login')->name('login');
 Route::post('/signup', 'HostController@SignUp')->name('signup');
-Route::get('/logout', 'HostController@LogOut')->name('logout');
+Route::get('/logoutUser', 'HostController@LogOut')->name('logoutuser');
 Route::any('/addtolist', 'RefugeeController@addToList')->name('addToList');
 Route::get('/deleteref/{id}','RefugeeController@removeFromList');
 Route::get('/logout', 'AdminController@LogOut')->name('logout');
