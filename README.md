@@ -6,5 +6,5 @@ Bonjour! We are Maxi, a non-profit organisation based in Belgium that connects l
 - Password : **test**
 - Chemin : **/adminLogin**
 
-[lien vers le site](http://dry-mesa-64295.herokuapp.com/signup)
+[lien vers le site](http://dry-mesa-64295.herokuapp.com)
 
