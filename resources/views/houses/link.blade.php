@@ -1,35 +1,29 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Connexion - Maxi</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <!-- Styles -->
-</head>
-<body>
-<div>
-    <h3>{{ $house->address}}</h3>
-    <p>Number of room : {{ $house->nbRoom}}</p>
-    <p>Type : {{ $house->type}}</p>
-    <p>Available : {{ $house->free ? 'yes' : 'no' }}</p>
-    <h3>Link a contact</h3>
-    <form method="post" action="/link">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <input type="hidden" name="houseId" value="{{ $house->id }}">
-        <div>
-            <select name="refugeeId">
-                @foreach ($refugeeList as $ref)
-                    <option value="{{$ref->id}}">{{$ref->contactName}}</option>
-                @endforeach
-            </select>
+@extends('../mainAdmin')
+@section('content')
+    <a class="btn btn-secondary mt-2 mb-5" href="/dashboard">Back</a>
+    <div class="container col-md-8">
+        <h2 class="mb-5">Link a house with a Refugee</h2>
+        <div class="card p-5">
+            <h3 class="text-primary">{{ $house->address}}</h3>
+            <p><span class="font-weight-bold">Number of room </span>: {{ $house->nbRoom}}</p>
+            <p><span class="font-weight-bold">Type </span>: {{ $house->type}}</p>
+            <p><span class="font-weight-bold">Available </span>: {{ $house->free ? 'yes' : 'no' }}</p>
+            <h6 class="text-primary">Refugees Contact</h6>
+            <form method="post" action="/link">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="houseId" value="{{ $house->id }}">
+                <div>
+                    <select class="mb-3 form-control" name="refugeeId">
+                        @foreach ($refugeeList as $ref)
+                            <option value="{{$ref->id}}">{{$ref->contactName}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <br>
+                <button class="btn btn-default">Link</button>
+            </form>
         </div>
-        <br>
-        <button>Link</button>
-    </form>
-</div>
-</body>
-</html>
+    </div>
+
+@stop
 

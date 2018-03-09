@@ -28,6 +28,8 @@ class RefugeeController extends Controller
             ]);
 
             Refugee::create($data);
+            return redirect('/dashboard');
+
         } else {
             if (session('isAdmin')) {
                 return view('refugees.add');
@@ -40,6 +42,7 @@ class RefugeeController extends Controller
     {
         $refugee = Refugee::find($id);
         $refugee->delete();
+        return redirect("/dashboard");
     }
 
     public function editInfos(Request $request, Refugee $refugeeGet)

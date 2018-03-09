@@ -1,89 +1,18 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('../mainAdmin')
+@section('content')
+    <a class="btn btn-secondary mt-2" href="/dashboard">Back</a>
+    <h2 class="mt-5">Add a Refugee</h2>
+    <div>
+        <form method="post" class="card p-4 mt-5 col-12 col-md-6" action="/addtolist">
+            <h6>Contact Name</h6>
+            <input class="mb-3 form-control" name="contactName" value="" type="text"/>
+            <h6>Nb Adults</h6>
+            <input class="mb-3 form-control" name="nbAdult" value="" type="number"/>
+            <h6>Nb child</h6>
+            <input class="mb-3 form-control" name="nbChild" value="" type="number"/>
 
-    <title>Laravel</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-    <!-- Styles -->
-    <style>
-        html, body {
-            background-color: #fff;
-            color: #636b6f;
-            font-family: 'Raleway', sans-serif;
-            font-weight: 100;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .full-height {
-            height: 100vh;
-        }
-
-        .flex-center {
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
-
-        .position-ref {
-            position: relative;
-        }
-
-        .top-right {
-            position: absolute;
-            right: 10px;
-            top: 18px;
-        }
-
-        .content {
-            text-align: center;
-        }
-
-        .title {
-            font-size: 84px;
-        }
-
-        .links > a {
-            color: #636b6f;
-            padding: 0 25px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: .1rem;
-            text-decoration: none;
-            text-transform: uppercase;
-        }
-
-        .m-b-md {
-            margin-bottom: 30px;
-        }
-    </style>
-</head>
-<body>
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
+            <input class="mb-3 form-control" type="hidden" name="_token" value="{{ csrf_token() }}">
+            <button class="btn btn-default" type="submit">Submit</button>
+        </form>
     </div>
-@endif
-<div>
-    <form method="post" action="/addtolist">
-        <input name="contactName" value="" type="text"/>
-        <input name="nbAdult" value="" type="number"/>
-        <input name="nbChild" value="" type="number"/>
-        <input name="accommodation" value={{true}} type="checkbox"/>
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-        <button type="submit">Submit</button>
-    </form>
-    <a class="btn btn-primary" href="/dashboard">Back</a>
-</div>
-</body>
-</html>
+@stop
