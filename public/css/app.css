@@ -12,5 +12,9 @@
   section .title span a {
     margin-left: 0;
   }
+
+  .form {
+    width: 250px;
+  }
 }
 
