@@ -1,24 +1,20 @@
-
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
 // Variables
 @import "variables";
 
 // Bootstrap
-
 
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-#cssmenu{
-  margin-bottom: 10px;
-}
-
-@media screen and (max-width: 600px){
-  section .title{
+@media screen and (max-width: 600px) {
+  section .title {
     max-width: 90%;
+    span a {
+      margin-left: 0;
+    }
   }
 }
