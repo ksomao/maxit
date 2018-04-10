@@ -94,7 +94,7 @@
         }
 
         .section h1 {
-            color: light gray;
+            color: gray;
         }
 
         @-moz-keyframes pop {
